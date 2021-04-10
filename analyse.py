@@ -158,7 +158,6 @@ agg_based_stats = [
     },
 ]
 
-# Track origin graph
 for param in agg_based_stats:
     tmp = dat_clean
     tmp = tmp.groupby(param["groupby"])[param["aggfield"]].agg('sum').reset_index(name=param["field"])
