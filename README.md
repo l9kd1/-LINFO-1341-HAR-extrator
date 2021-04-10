@@ -13,7 +13,7 @@ https://roymartinez.dev/2019-06-05-har-analysis/
 
 ### Comment m'utiliser ?
 Super simple !
-1. `git clone `.
+1. `git clone https://github.com/l9kd1/-LINFO-1341-HAR-extrator.git`.
 2. Tu génères un fichier .har avec ton navigateur préféré et tu le déplaces dans le répertoire où se trouve `analyse.py`.
 3. Tu modifies les variables `logname` et `analysed_domains` dans le script `analyse.py` avec les valeurs correctes.
 4. `python analyse.py` et le tour est joué !
