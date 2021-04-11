@@ -1,6 +1,6 @@
 """
 Written by Loic Grumiaux - 37871800
-April 2020
+April 2021
 
 This website helped a great deal:
 https://roymartinez.dev/2019-06-05-har-analysis/
