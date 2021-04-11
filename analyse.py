@@ -97,11 +97,11 @@ for r in har['log']['entries']:
 
     send_sz = findHeader(r,'request','Content-Length','eq')
     if(send_sz== "None"):
-        send_sz=0
+        send_sz=r['request'].get('content',{}).get('size','0')
 
     rcv_sz = findHeader(r,'response','Content-Length','eq')
     if(rcv_sz== "None"):
-        rcv_sz=0
+        rcv_sz=r['response'].get('content',{}).get('size','0')
 
     try:
         new_row = {
@@ -111,6 +111,7 @@ for r in har['log']['entries']:
             'httpVersion':r['request']['httpVersion'],
             'method':r['request']['method'],
             'status':r['response']['status'],
+            'content-length':(float(rcv_sz)+float(send_sz))/1024,
             'port_used':r.get('connection','0'),
             'extension':ext,
             'server':str(findHeader(r,'response','server','eq')),
@@ -156,6 +157,13 @@ agg_based_stats = [
         "csv_name":"output_traffic_host",
         "field":"Size sent to host [KB]"
     },
+    {
+        "groupby":['extension'],
+        "sortby":["Size received [KB]"],
+        "aggfield":'content-length',
+        "csv_name":"type_size",
+        "field":"Size received [KB]"
+    },
 ]
 
 for param in agg_based_stats:
@@ -195,6 +203,10 @@ size_based_stats = [
     {
         "groupby":['method'],
         "csv_name":"method_used"
+    },
+    {
+        "groupby":['host','url'],
+        "csv_name":"nb_url_perhost"
     }
 ]
 
