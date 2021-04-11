@@ -15,7 +15,7 @@ directory = os.getcwd()+'/'
 # CHANGE PARAMETERS BELOW
 
 #  Le chemin vers le .har à partir du répertoire du script python
-logname = 'inginious.har'
+logname = 'cloudflare.har'
 #  Le nom de domaine du site
 analysed_domains = ['inginious.info.ucl.ac.be']
 
@@ -111,7 +111,7 @@ for r in har['log']['entries']:
             'httpVersion':r['request']['httpVersion'],
             'method':r['request']['method'],
             'status':r['response']['status'],
-            'port_used':r.get('connexion','0'),
+            'port_used':r.get('connection','0'),
             'extension':ext,
             'server':str(findHeader(r,'response','server','eq')),
             'size_snt':((float(send_sz)+(r['request']['headersSize'] or 0))/(1024)),
