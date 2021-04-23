@@ -6,7 +6,6 @@ This website helped a great deal:
 https://roymartinez.dev/2019-06-05-har-analysis/
 
 """
-
 import json, os,re
 import pandas as pd
 
@@ -15,11 +14,11 @@ directory = os.getcwd()+'/'
 # CHANGE PARAMETERS BELOW
 
 #  Le chemin vers le .har à partir du répertoire du script python
-logname = 'cloudflare.har'
+logname = 'inginious.har'
 #  Le nom de domaine du site
 analysed_domains = ['inginious.info.ucl.ac.be']
 
-with open(directory+logname, 'r') as f:
+with open(directory+logname, 'r',encoding="utf-8") as f:
     har = json.loads(f.read())
     f.close()
 
