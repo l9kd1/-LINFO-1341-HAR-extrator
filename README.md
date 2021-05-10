@@ -18,5 +18,8 @@ Super simple !
 3. Tu modifies les variables `logname` et `analysed_domains` dans le script `analyse.py` avec les valeurs correctes.
 4. `python analyse.py` et le tour est joué !
 
+Si tu as un problème avec le format csv tu peux aller voir le petit script de David qui pourrait t'aider !
+https://github.com/l9kd1/LINFO-1341-HAR-extractor/issues/2
+
 ### Requirements
 Tu risques de devoir installer le package `pandas`.
